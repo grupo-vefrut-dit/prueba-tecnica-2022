@@ -19,3 +19,10 @@ En este prueba se deberá desarrollar una API Restful para la administración de
 - Si es que utilizan una base de datos relacional, incluir el script de la base de datos.
 - Al iniciar sesión el token deberá tener una duración de entre 3 a 5 minutos
 - La API Rest debe contar con las validaciones correspondientes y deberá retornar mensajes de error según sea el caso.
+
+## comandos utilizados
+npm init -y
+npm i express bcryptjs dotenv jsonwebtoken 
+npm i cors mongoose morgan helmet
+npm i @babel/core @babel/cli -D
+npm i @babel/node @babel/preset-env nodemon -D
