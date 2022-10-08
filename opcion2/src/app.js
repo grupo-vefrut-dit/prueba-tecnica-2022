@@ -2,9 +2,13 @@
 import express from "express";
 import morgan  from "morgan";
 import peliculasRoutes from "./routes/peliculas.routes";
+import authRoutes from "./routes/usuarios.routes";
+
 /**
  * Area de trabajo
  */
+
+//app
 const app = express()
 
 
@@ -14,9 +18,12 @@ app.use(morgan('dev'));
 //para leer json
 app.use(express.json());
 
-app.use('/peliculas',peliculasRoutes)
+//API 
+app.use('/api/peliculas',peliculasRoutes);
+
+app.use('/api/auth',authRoutes);
 
 
 
-
+//exportamos app
 export default app;
