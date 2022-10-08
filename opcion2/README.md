@@ -26,3 +26,7 @@ npm i express bcryptjs dotenv jsonwebtoken
 npm i cors mongoose morgan helmet
 npm i @babel/core @babel/cli -D
 npm i @babel/node @babel/preset-env nodemon -D
+npm run build 
+npm run start 
+npm run dev
+mkdir controllers libs middlewares models routes
