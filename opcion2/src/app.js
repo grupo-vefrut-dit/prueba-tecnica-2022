@@ -2,7 +2,7 @@
 import express from "express";
 import morgan  from "morgan";
 import peliculasRoutes from "./routes/peliculas.routes";
-import authRoutes from "./routes/usuarios.routes";
+import authRoutes from "./routes/auth.routes";
 
 /**
  * Area de trabajo
@@ -20,7 +20,6 @@ app.use(express.json());
 
 //API 
 app.use('/api/peliculas',peliculasRoutes);
-
 app.use('/api/auth',authRoutes);
 
 

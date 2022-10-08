@@ -20,6 +20,7 @@ export const createPeliculas = async (req, res) => {
 export const getPeliculas = async (req, res) => {
     
     const peliculas = await Peliculas.find()
+    // mensajes de error según sea el caso.
     res.status(200).json(peliculas)
 }
 
@@ -27,6 +28,7 @@ export const getPeliculas = async (req, res) => {
 export const getPeliculasById = async (req, res) => {
     
     const pelicula = await Peliculas.findById(req.params.peliculasId);
+    // mensajes de error según sea el caso.
     res.status(200).json(pelicula);
 }
 
@@ -34,6 +36,7 @@ export const getPeliculasById = async (req, res) => {
 export const updatePeliculasById = async (req, res) => {
 
     const updatePelicula = await Peliculas.findByIdAndUpdate(req.params.peliculasId, req.body,{ new: true})
+    // mensajes de error según sea el caso.
     res.status(200).json(updatePelicula)
 
 }
@@ -42,5 +45,6 @@ export const updatePeliculasById = async (req, res) => {
 export const deletePeliculasById = async (req, res) => {
 
     const deletePelicula = await Peliculas.findOneAndDelete(req.params.peliculasId)
+    // mensajes de error según sea el caso.
     res.status(204).json("Eliminado")
 }

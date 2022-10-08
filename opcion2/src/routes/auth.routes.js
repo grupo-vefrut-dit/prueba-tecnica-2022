@@ -9,11 +9,13 @@ import * as authCtrl from '../controllers/auth.controller'
 
 
 //Registrar usuario
-router.post('/registrar',authCtrl.registrarse);
+router.post('/registrarse',authCtrl.registrarse);
 
 //Iniciar Sesión ó login
 router.post('/sesion',authCtrl.sesion);
 
+//listar todos los usuarios
+router.get('/listaUsuarios',authCtrl.getlistaUsuarios);
 
 //exportamos router
 export default router;
