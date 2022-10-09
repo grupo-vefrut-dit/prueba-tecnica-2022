@@ -1,10 +1,11 @@
 //Importaciones
 import Usuarios from "../models/Usuarios";
-
+import jwt from "jsonwebtoken";
+import config from "../config";
 /**
  * Area de trabajo
 */
-//TODO Falta validar aun
+
 //agregar usuario
 export const registrarse = async (req, res) => {
     const { nombre, clave } = req.body;
@@ -13,11 +14,20 @@ export const registrarse = async (req, res) => {
         nombre,
         clave: await Usuarios.encryptClave(clave)
     });
-    await nuevoUsuario.save();
+
+    const usuarioSave = await nuevoUsuario.save();
     //console.log(nuevoUsuario)
 
+    
+    // devolver token
+    const token = jwt.sign({id: usuarioSave._id},config.C_SECRETA,{
+        expiresIn:86400
+    });
+    res.status(200).json({token});
+
+
 }
-//TODO pendiente
+
 //Iniciar sesion
 export const sesion = async (req, res) => {
 

@@ -18,6 +18,7 @@ app.use(morgan('dev'));
 //para leer json
 app.use(express.json());
 
+
 //API 
 app.use('/api/peliculas',peliculasRoutes);
 app.use('/api/auth',authRoutes);
