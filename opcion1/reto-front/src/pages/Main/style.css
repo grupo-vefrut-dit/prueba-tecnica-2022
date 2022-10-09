@@ -1,0 +1,12 @@
+.main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+.movies--title {
+  color: #f5bd0d;
+}
