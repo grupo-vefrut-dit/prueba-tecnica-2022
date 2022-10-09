@@ -1,0 +1,39 @@
+{
+  "name": "prueba-tecnica-2022",
+  "version": "1.0.0",
+  "description": "![Logo](https://drive.google.com/uc?export=view&id=169yKwKR9sxmEBSQIGNuap9W6p_khv8q3)",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel opcion2/src --out-dir build",
+    "dev":   "nodemon opcion2/src/index.js --exec babel-node",
+    "start": "node build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GithubCarlos92/prueba-tecnica-2022.git"
+  },
+  "keywords": [],
+  "author": "Carlos Valverde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GithubCarlos92/prueba-tecnica-2022/issues"
+  },
+  "homepage": "https://github.com/GithubCarlos92/prueba-tecnica-2022#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "helmet": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/node": "^7.19.1",
+    "@babel/preset-env": "^7.19.3",
+    "nodemon": "^2.0.20"
+  }
+}
