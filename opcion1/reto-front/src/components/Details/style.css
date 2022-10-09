@@ -1,0 +1,55 @@
+.details--title {
+  color: white;
+}
+.text-blue {
+  color: rgb(44, 44, 250);
+  font-weight: 500;
+}
+
+.text-grey {
+  color: grey;
+  font-weight: 500;
+}
+
+.container {
+  display: flex;
+  width: 85%;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 4rem;
+  border-radius: 5px;
+}
+
+.information-details {
+  background-color: #1a1a1a;
+  height: 400px;
+  padding: 0 1rem;
+}
+
+.details-img {
+  width: 255px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.btn-back {
+  color: #328de6;
+  padding: 1rem 1.5rem;
+  background-color: #3c3c3c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-back:hover {
+  padding: 0.9rem 1.4rem;
+  color: #85b4ea;
+  background-color: #717171;
+}
+
+.arrow-left {
+  display: inline;
+  width: 0.9rem;
+  padding-right: 0.2rem;
+}
