@@ -4,7 +4,7 @@ const router = Router()
 import * as peliculasCtrl from "../controllers/peliculas.controller";
 
 /**
- * Area de trabajo
+ * Area de trabajo  - endpoint Peliculas
  */
 
 //ruta para agregar las peliculas
