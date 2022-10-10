@@ -4,7 +4,7 @@ import { Request, Response, NextFunction } from "express";
 
 export const generateToken = (uid: String) => {
   try {
-    const expiresIn = 60 * 15; // 60 * 3
+    const expiresIn = 60000 * 3; // 60 * 3
     const token = jwt.sign({ uid }, config.JWT.SECRET, { expiresIn });
     return { token, expiresIn };
   } catch (error) {
@@ -13,7 +13,7 @@ export const generateToken = (uid: String) => {
 };
 
 export const generateRefreshToken = (uid: String, res: Response) => {
-  const expiresIn = 60 * 60 * 24 * 30; // 60 * 5
+  const expiresIn = 60 * 5; // 60 * 5
 
   try {
     const refreshToken = jwt.sign({ uid }, config.JWT.REFRESH, { expiresIn });

@@ -9,6 +9,20 @@ import { uploadFile, deleteFile } from "../utils/cloudinary.js";
 class movieController {
   async toList(req: Request, res: Response) {
     try {
+      const data = await Movies.findAll({
+        attributes: {
+          exclude: ["s_n", "uid", "public_img", "createdAt", "updatedAt"],
+        },
+      });
+      return res.status(200).json(data);
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error: "Error de servidor!" });
+    }
+  }
+
+  async filter(req: Request, res: Response) {
+    try {
       const { sort, limit, page, search_by_name } = req.body;
 
       const splitString = sort.split("-");
@@ -28,10 +42,11 @@ class movieController {
       return res.status(500).json({ error: "Error de servidor!" });
     }
   }
+
   async search(req: Request, res: Response) {
     try {
       const data = await Movies.findOne({
-        where: { uid: req.params.id },
+        where: { cod: req.params.id },
         attributes: {
           exclude: ["s_n", "uid", "public_img", "createdAt", "updatedAt"],
         },
@@ -82,8 +97,8 @@ class movieController {
       });
 
       data == 1
-        ? res.json({ ok: true })
-        : res.json({ error: "Error de servidor!" });
+        ? res.status(204).json({ ok: true })
+        : res.status(400).json({ error: "Error Pelicula no encontrada!" });
     } catch (error) {
       console.error(error);
       return res.status(500).json({ error: "Error de servidor!" });

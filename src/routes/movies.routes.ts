@@ -9,7 +9,13 @@ const validator = new Validator();
 const router = Router();
 
 router.get("/movies", auhToken, controller.toList);
-router.get("/movies/:id", auhToken, controller.search);
+router.get(
+  "/movies/filter",
+  auhToken,
+  validator.moviesFilter,
+  controller.filter
+);
+router.get("/movies/:id", auhToken, validator.movieID, controller.search);
 router.post(
   "/movies",
   auhToken,
@@ -17,6 +23,6 @@ router.post(
   validator.movies,
   controller.create
 );
-router.delete("/movies/:id", auhToken, controller.delete);
+router.delete("/movies/:id", auhToken, validator.movieID, controller.delete);
 
 export default router;

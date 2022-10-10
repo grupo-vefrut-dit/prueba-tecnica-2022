@@ -21,6 +21,22 @@ class movieController {
     toList(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                const data = yield movies_models_1.default.findAll({
+                    attributes: {
+                        exclude: ["s_n", "uid", "public_img", "createdAt", "updatedAt"],
+                    },
+                });
+                return res.status(200).json(data);
+            }
+            catch (error) {
+                console.error(error);
+                return res.status(500).json({ error: "Error de servidor!" });
+            }
+        });
+    }
+    filter(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
                 const { sort, limit, page, search_by_name } = req.body;
                 const splitString = sort.split("-");
                 const sort_column = splitString[0];
@@ -41,7 +57,7 @@ class movieController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const data = yield movies_models_1.default.findOne({
-                    where: { uid: req.params.id },
+                    where: { cod: req.params.id },
                     attributes: {
                         exclude: ["s_n", "uid", "public_img", "createdAt", "updatedAt"],
                     },
@@ -89,8 +105,8 @@ class movieController {
                     where: { cod: req.params.id },
                 });
                 data == 1
-                    ? res.json({ ok: true })
-                    : res.json({ error: "Error de servidor!" });
+                    ? res.status(204).json({ ok: true })
+                    : res.status(400).json({ error: "Error Pelicula no encontrada!" });
             }
             catch (error) {
                 console.error(error);
