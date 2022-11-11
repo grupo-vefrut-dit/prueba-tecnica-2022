@@ -20,7 +20,6 @@ export const refreshToken = async (
 
       req.query.uid = uid;
       next();
-      return next();
     } catch (error) {
       console.error(error);
       return res.status(401).send({ error: "Token inválido!" });
